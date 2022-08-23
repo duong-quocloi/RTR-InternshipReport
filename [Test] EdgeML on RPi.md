@@ -95,7 +95,7 @@ Raspberry Pi 4 Model B 8GB RAM
   <tr>
    <td>tiny-yolov5
    </td>
-   <td>18.86 s 
+   <td>0.847 ms 
    </td>
    <td>
    </td>
