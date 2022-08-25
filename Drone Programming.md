@@ -431,6 +431,7 @@ PyMAVlink có thể được xem là một phiên bản áp dụng giao thức M
 ## Ví dụ sử dụng PyMAVlink trong lập trình drone
 
 Trong ví dụ này, ta sẽ dùng pyMAVlink để điều khiển độ cao drone theo giá trị của throttle stick (1000-2000 ↔ 1m - 11m)
+*Note*: Thay vì đọc giá trị row/pitch rồi set theo x,y. Chúng ta có thể dùng mavutil.mavlink_connection.mav.rc_channels_override_send
 ```python
 #import một số thư viện cần dùng. module mavutil có nhiều hàm để hỗ trợ cho việc kết nối và gửi thông điệp
 from pymavlink import mavutil
@@ -481,4 +482,13 @@ while 1:
     the_connection.mav.send(mavutil.mavlink.MAVLink_set_position_target_local_ned_message(10, the_connection.target_system,
                         the_connection.target_component, mavutil.mavlink.MAV_FRAME_LOCAL_NED, int(0b110111000000), x_rev, y_rev, z_rev, v, v, 0, 0, 0, 0, 0, 0))
 ```
-
+### Video demo (soon)
+<iframe
+    width="640"
+    height="480"
+    src="https://www.youtube.com/embed/[]"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+>
+</iframe>
