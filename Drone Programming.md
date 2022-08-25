@@ -482,7 +482,7 @@ while 1:
     the_connection.mav.send(mavutil.mavlink.MAVLink_set_position_target_local_ned_message(10, the_connection.target_system,
                         the_connection.target_component, mavutil.mavlink.MAV_FRAME_LOCAL_NED, int(0b110111000000), x_rev, y_rev, z_rev, v, v, 0, 0, 0, 0, 0, 0))
 ```
-### Video demo (soon)
+### Video demo
 [![Throttle value to height](https://res.cloudinary.com/marcomontalbano/image/upload/v1661399342/video_to_markdown/images/youtube--XIMLoLxmTDw-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/icSMvVgDrow "Throttle value to height")
 ---
 
