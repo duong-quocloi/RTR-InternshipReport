@@ -484,3 +484,15 @@ while 1:
 ```
 ### Video demo (soon)
 [![Throttle value to height](https://res.cloudinary.com/marcomontalbano/image/upload/v1661399342/video_to_markdown/images/youtube--XIMLoLxmTDw-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/XIMLoLxmTDw "Throttle value to height")
+---
+
+# Tham khảo
+
+
+
+1. [MAVLink Introduction | Middleware for Open Source Drones](https://www.youtube.com/watch?v=iZ-usX1VXRI)
+2. [MAVLink Messages | Dissecting the Protocol](https://www.youtube.com/watch?v=Ha66uKC-od0)
+3. [Packet Serialization](https://mavlink.io/en/guide/serialization.html)
+4. [Using Pymavlink Libraries (mavgen)](https://mavlink.io/en/mavgen_python/)
+5. [https://github.com/ArduPilot/pymavlink](https://github.com/ArduPilot/pymavlink)
+6. [Drone Programming Libraries 2021](https://www.youtube.com/watch?v=XpkEi7tFZGc&t=434s)
