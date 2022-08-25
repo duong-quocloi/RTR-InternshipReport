@@ -5,7 +5,8 @@
 <p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image1.png "image_tooltip")
+![alt_text]([images/image1.png "image_tooltip"](https://user-images.githubusercontent.com/67494883/186568698-328ace6e-ce33-4f7c-9964-6a2b4bf6aef8.png))
+
 
 
 
@@ -40,7 +41,8 @@ MAVlink là một message protocol gọn nhẹ dùng để giao tiếp với dro
 <p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image2.png "image_tooltip")
+![alt_text](https://user-images.githubusercontent.com/67494883/186568827-eb8cfab1-c4fa-4ee9-ac75-bf5fc83f49ed.png)
+
 
 
 
@@ -436,4 +438,55 @@ PyMAVlink có thể được xem là một phiên bản áp dụng giao thức M
 
 ## Ví dụ sử dụng PyMAVlink trong lập trình drone
 
-	Trong ví dụ này, ta sẽ dùng pyMAVlink để điều khiển độ cao drone theo giá trị của throttle stick (1000-2000 ↔1m - 11m)
+Trong ví dụ này, ta sẽ dùng pyMAVlink để điều khiển độ cao drone theo giá trị của throttle stick (1000-2000 ↔ 1m - 11m)
+```python
+#import một số thư viện cần dùng. module mavutil có nhiều hàm để hỗ trợ cho việc kết nối và gửi thông điệp
+from pymavlink import mavutil
+from time import sleep
+
+# Tạo kết nối qua cổng UDP. 14550 14551 là 2 cổng mặc định của mavlink connection stream. Ta sẽ sử dụng port 14550 cho GCS
+the_connection = mavutil.mavlink_connection('udpin:localhost:14551')
+
+# Chờ xác nhận kết nối -> Lấy được system ID, component ID của liên kết
+the_connection.wait_heartbeat() 
+print("Heartbeat from system (system %u component %u)" %
+      (the_connection.target_system, the_connection.target_component))
+
+#Arm the quad
+the_connection.mav.command_long_send(the_connection.target_system, the_connection.target_component,
+                                     mavutil.mavlink.MAV_CMD_COMPONENT_ARM_DISARM, 0, 1, 0, 0, 0, 0, 0, 0)
+msg = the_connection.recv_match(type='COMMAND_ACK', blocking=True)
+print(msg)
+
+#Take off
+the_connection.mav.command_long_send(the_connection.target_system, the_connection.target_component,
+                                     mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, 0, 0, 0, 0, 0, 1)
+msg = the_connection.recv_match(type='COMMAND_ACK', blocking=True)
+print(msg)
+sleep(5)
+
+#Tạo biến toạ độ tương đối x,y,z và vận tốc v
+x_rev = 0
+y_rev = 0
+z_rev = 0
+v = 5
+
+while 1:
+    #Đọc tín hiệu gửi về, và lọc ra, chỉ đọc của RC_CHANNELS
+    msg = the_connection.recv_match(type='RC_CHANNELS', blocking=True)
+
+    #print('{} {} {} {}'.format(msg.chan1_raw,msg.chan2_raw,msg.chan3_raw,msg.chan4_raw))
+    rollI = (msg.chan1_raw-1515)/100
+    pitchI = (msg.chan2_raw-1500)/100
+    yawI = (msg.chan4_raw-1517)/100
+    throttleI = -((msg.chan3_raw-1000)/100 +1)
+
+    x_rev += pitchI
+    y_rev += rollI
+    z_rev = throttleI
+
+    #print("{} {} {}".format(x_rev,y_rev,z_rev))
+    the_connection.mav.send(mavutil.mavlink.MAVLink_set_position_target_local_ned_message(10, the_connection.target_system,
+                        the_connection.target_component, mavutil.mavlink.MAV_FRAME_LOCAL_NED, int(0b110111000000), x_rev, y_rev, z_rev, v, v, 0, 0, 0, 0, 0, 0))
+```
+
