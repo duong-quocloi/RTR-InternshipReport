@@ -1,11 +1,6 @@
 # Kiến trúc thượng tầng
 
-
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text]([images/image1.png "image_tooltip"](https://user-images.githubusercontent.com/67494883/186568698-328ace6e-ce33-4f7c-9964-6a2b4bf6aef8.png))
+![alt_text](https://user-images.githubusercontent.com/67494883/186568698-328ace6e-ce33-4f7c-9964-6a2b4bf6aef8.png)
 
 
 
@@ -36,9 +31,6 @@ MAVlink là một message protocol gọn nhẹ dùng để giao tiếp với dro
 
 ## Cấu trúc:
 
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
 ![alt_text](https://user-images.githubusercontent.com/67494883/186568827-eb8cfab1-c4fa-4ee9-ac75-bf5fc83f49ed.png)
