@@ -12,7 +12,9 @@ Yêu cầu trước khi setup:
 # Set up package:
 
 Ở thư mục catkin_ws, tạo package mới `control_uav` với các build dependency package `rospy`, `mavlink`, `mavros`, `sensor_msgs`, `std_msgs` như sau:
-```catkin_create_pkg control_uav rospy mavlink mavros sensor_msgs std_msgs```
+```
+catkin_create_pkg control_uav rospy mavlink mavros sensor_msgs std_msgs
+```
 
 # Thêm script vào package:
 
