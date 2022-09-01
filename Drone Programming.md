@@ -484,6 +484,44 @@ while 1:
 ```
 ### Video demo
 [![Throttle value to height](https://res.cloudinary.com/marcomontalbano/image/upload/v1661399342/video_to_markdown/images/youtube--XIMLoLxmTDw-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/icSMvVgDrow "Throttle value to height")
+
+# MAVROS
+
+MAVROS là một lựa chọn dành cho những ai sử dụng ROS. ROS đặc biệt hữu dụng cho việc kết hợp các hệ thống khác nhau trên cùng 1 thiết bị nhờ vào khả năng truyền dữ liệu giữa các hệ thống với nhau.
+
+![Graphic design is my passion(1)](https://user-images.githubusercontent.com/67494883/187829555-4cdf11c2-b55d-4a5a-8283-17eaf7b75750.png)
+
+_Ảnh trên minh hoạ kiến trúc chung của Companion Computer chạy trên ROS. _
+
+	Ví dụ ở một kiến trúc thường gặp trên Companion Computer sử dụng ROS. Giả sử ta có một node được thiết kế với nhiệm vụ đọc tín hiệu camera và xử lý ảnh, sau đó dữ liệu được chuyển qua một Node chuyển đổi để tính toạ độ theo hệ quy chiếu chung (cho thuật toán tìm đường chẳng hạn). Thuật toán sẽ gửi các lệnh tìm đường đến Node MAVROS để chuyển qua MAVlink cho flight controller. 
+
+
+## Ví dụ sử dụng MAVROS trong lập trình drone
+
+
+### Nhiệm vụ:
+
+Drone sẽ đọc hình ảnh từ camera và di chuyển đến mép đường bay.
+
+
+### Mô tả:
+
+Hệ thống sẽ gồm 3 Node: 
+
+
+
+* 1 Node dùng để hiện luồng ảnh từ topic `/webcame/image_raw` thông qua `cv_bridge`
+* 1 Node để xử lý ảnh: Đọc ảnh topic `/webcame/image_raw` thông qua `cv_bridge`, đếm số pixel của mặt đường. Nếu số pixel của đường > 15% tổng số pixel thì vẫn xem là drone ở trong đường bay. Trả về topic `img_signal`
+* 1 Node để điều khiển drone: Đọc tín hiệu từ topic `img_signal`, nếu tín hiệu là true, sẽ cho drone bay sang phải 0.5 đơn vị.
+
+![Screenshot from 2022-09-01 09-25-30](https://user-images.githubusercontent.com/67494883/187829613-9208555c-55a9-464f-a4f9-2035e8d9e4d3.png)
+
+_Rqt graph_
+
+### Video Demo:
+
+[![Throttle value to height](https://res.cloudinary.com/marcomontalbano/image/upload/v1661399342/video_to_markdown/images/youtube--XIMLoLxmTDw-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/VqjRB8BPLlg "ROSPY Vision")
+
 ---
 
 # Tham khảo
@@ -496,3 +534,6 @@ while 1:
 4. [Using Pymavlink Libraries (mavgen)](https://mavlink.io/en/mavgen_python/)
 5. [https://github.com/ArduPilot/pymavlink](https://github.com/ArduPilot/pymavlink)
 6. [Drone Programming Libraries 2021](https://www.youtube.com/watch?v=XpkEi7tFZGc&t=434s)
+7. [ROS Tutorials Python - Beginner](https://youtu.be/C6BlNbeU3fQ?list=PLAjUtIp46jDcQb-MgFLpGqskm9iB5xfoP)
+8. [iq_gnc package](https://github.com/Intelligent-Quads/iq_gnc)
+9. [ROS Developers LIVE Class #86: How to use OpenCV with ROS](https://www.youtube.com/watch?v=0C0gOsLoP9k)
