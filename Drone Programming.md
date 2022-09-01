@@ -491,7 +491,7 @@ MAVROS là một lựa chọn dành cho những ai sử dụng ROS. ROS đặc b
 
 ![Graphic design is my passion(1)](https://user-images.githubusercontent.com/67494883/187829555-4cdf11c2-b55d-4a5a-8283-17eaf7b75750.png)
 
-_Ảnh trên minh hoạ kiến trúc chung của Companion Computer chạy trên ROS. _
+_Ảnh trên minh hoạ kiến trúc chung của Companion Computer chạy trên ROS._
 
 	Ví dụ ở một kiến trúc thường gặp trên Companion Computer sử dụng ROS. Giả sử ta có một node được thiết kế với nhiệm vụ đọc tín hiệu camera và xử lý ảnh, sau đó dữ liệu được chuyển qua một Node chuyển đổi để tính toạ độ theo hệ quy chiếu chung (cho thuật toán tìm đường chẳng hạn). Thuật toán sẽ gửi các lệnh tìm đường đến Node MAVROS để chuyển qua MAVlink cho flight controller. 
 
