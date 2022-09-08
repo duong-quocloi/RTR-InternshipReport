@@ -149,7 +149,7 @@ Ardupilot có đề cập một số lựa chọn để ứng dụng telemetry. 
 
 # Set up bằng ESP8266
 
-	Trong bài viết này, người viết sử dụng ESP8266 để làm telemetry cho drone, với lý do như sau:
+Trong bài viết này, người viết sử dụng ESP8266 để làm telemetry cho drone, với lý do như sau:
 
 
 
