@@ -1,6 +1,6 @@
 # Ứng dụng của telemetry trên drone
 
-	Bằng cách sử dụng Telemetry, người dùng có thể nhận được thông số và trạng thái của drone trong thời gian thực (vd dung lượng pin, nhiệt độ, độ cao,..) , từ đó phi công có thể phản ứng kịp thời trước các tình huống. Trong Ground Control Station còn cho phép người dùng điều khiển drone mà không đến tay cầm hay port USB (thay đổi các thông số trong ardupilot, thay đổi flight plan,...). 
+Bằng cách sử dụng Telemetry, người dùng có thể nhận được thông số và trạng thái của drone trong thời gian thực (vd dung lượng pin, nhiệt độ, độ cao,..) , từ đó phi công có thể phản ứng kịp thời trước các tình huống. Trong Ground Control Station còn cho phép người dùng điều khiển drone mà không đến tay cầm hay port USB (thay đổi các thông số trong ardupilot, thay đổi flight plan,...). 
 
 Ngoài ra, ardupilot còn hỗ trợ telemetry log cho máy tính. Tính năng này cho phép người dùng mô phỏng lại mission (mission playback), chắt lọc những thông số và waypoint cần thiết, vẽ lại đồ thị,... giúp người dùng phân tích chuyến bay. Một số flight controller không có thẻ nhớ để lưu trữ log nên tính năng này đặc biệt quan trọng. 
 
